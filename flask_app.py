@@ -1,9 +1,11 @@
 from flask import Flask, jsonify
 import json
 import sqlite3
-
+import os
 app = Flask(__name__)
-DB_FILE = "codes.db"
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_FILE = os.path.join(BASE_DIR, "codes.db")
 TABLE_NAME = "code_entries"
 
 
@@ -12,6 +14,10 @@ def get_db_connection():
     conn.row_factory = sqlite3.Row
     return conn
 
+# for debugging tests if server is running
+@app.route("/")
+def hello():
+    return "Hello, World!"
 
 # Dynamic endpoint: reads value from URL
 @app.route("/<string:code>")

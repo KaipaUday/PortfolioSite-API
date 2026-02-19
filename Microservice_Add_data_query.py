@@ -4,8 +4,10 @@ import secrets
 import sqlite3
 import string
 from pathlib import Path
+import os
 
-DB_FILE = "codes.db"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_FILE = os.path.join(BASE_DIR, "codes.db")
 TABLE_NAME = "code_entries"
 
 

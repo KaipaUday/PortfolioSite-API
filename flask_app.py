@@ -2,8 +2,10 @@ from flask import Flask, jsonify
 import json
 import sqlite3
 import os
-app = Flask(__name__)
+from flask_cors import CORS
 
+app = Flask(__name__)
+CORS(app)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_FILE = os.path.join(BASE_DIR, "codes.db")
 TABLE_NAME = "code_entries"

@@ -1,5 +1,5 @@
 run on actual server and update data 
-can also send all the common data after verification like urls of socials.
+can also send all the common data after verification like urls of socials and pdf docs etc.
 Deactivate access after 30 days. (low prioprity)
 
 

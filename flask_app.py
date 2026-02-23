@@ -3,7 +3,7 @@ import json
 import sqlite3
 import os
 from flask_cors import CORS
-
+import time
 app = Flask(__name__)
 CORS(app)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -33,7 +33,7 @@ def read_code(code):
         """,
         (code,),
     ).fetchone()
-
+    # time.sleep(0.5)  # Simulate processing delay for testing purposes
     if row is None:
         conn.close()
         return jsonify({"error": "Code not found"}), 404
